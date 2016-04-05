@@ -122,7 +122,7 @@ public class ImageConverter  implements java.io.Serializable {
         
         n=org_image.getHeight()*org_image.getWidth()/45;
         
-        return n;
+        return n-1;
     }
     
     
