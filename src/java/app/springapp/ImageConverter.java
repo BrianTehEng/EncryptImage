@@ -95,7 +95,7 @@ public class ImageConverter  implements java.io.Serializable {
         }
         catch(IOException e){
             
-            System.out.println("Could not read image!");
+            System.out.println("Could not read image! :"+e.getMessage());
         }
     }
     
@@ -121,6 +121,12 @@ public class ImageConverter  implements java.io.Serializable {
         n=org_image.getHeight()*org_image.getWidth()/45;
         
         return n-1;
+    }
+    
+    
+    public void copyOriginalImage(){
+        
+        new_image=deepCopy(org_image);
     }
     
     
@@ -181,8 +187,8 @@ public class ImageConverter  implements java.io.Serializable {
            
        }
        
-       
-       return m.toString();
+       message=m.toString();
+       return message;
         
     }
     
@@ -314,6 +320,7 @@ public class ImageConverter  implements java.io.Serializable {
      
       
     //Get the block value between pixel x1,y1, and the pixel that is n-1 spaces away
+    //flag =true for new image, false for original image
     public int getBlockValue(int x1,int y1,int n,boolean flag){
             
         BufferedImage im;
