@@ -220,12 +220,13 @@ public class ImageConverter  implements java.io.Serializable {
      while(bits >0){
          
          int rgb=org_image.getRGB(i, j);
-                
+         
+         int alpha=(rgb >>24)& 0xFF;
          int red= (rgb >>16) & 0xFF; 
          int green=(rgb >> 8)& 0xFF; 
          int blue=rgb & 0xFF;
          
-         if(red%2 <1 && red<255){
+         if(red%2 <1 && red<255 ){
              red++;
              bits--;
          }
@@ -239,8 +240,9 @@ public class ImageConverter  implements java.io.Serializable {
              bits--;
          }
        
-         int rgb2=red;
+         int rgb2=alpha;
          
+             rgb2=(rgb2 <<8)+red;
              rgb2=(rgb2 <<8)+green;
              rgb2=(rgb2 <<8)+blue;
              
@@ -259,30 +261,31 @@ public class ImageConverter  implements java.io.Serializable {
       while(bits <0){
          
          int rgb=org_image.getRGB(i, j);
-                
+         
+         int alpha= (rgb >>24) & 0xFF;
          int red= (rgb >>16) & 0xFF; 
          int green=(rgb >> 8)& 0xFF; 
          int blue=rgb & 0xFF;
          
-         if(red%2 >0 && red<255){
+         if(red%2 >0 && red>2){
              red--;
              bits++;
          }
          
-         if(green%2 >0 && green<255 && bits<0){
+         if(green%2 >0 && green>2 && bits<0){
              green--;
              bits++;
          }
-         if(blue%2 >0 && blue<255 && bits<0){
+         if(blue%2 >0 && blue>2 && bits<0){
              blue--;
              bits++;
          }
        
-         int rgb2=red;
+         int rgb2=alpha;
          
+             rgb2=(rgb2 <<8)+red;
              rgb2=(rgb2 <<8)+green;
              rgb2=(rgb2 <<8)+blue;
-             
              new_image.setRGB(i, j, rgb2);
              
              if(i+1<org_image.getWidth()){
