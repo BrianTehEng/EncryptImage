@@ -10,10 +10,10 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,8 +23,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 /**
  *
- * @author swagbito
+ * @author CodeFletcher
  */
+
 
 @Controller
 @Scope("request")
@@ -55,7 +56,7 @@ public class ConvertImageController {
     
     }
     
-
+//Returns image for view
 @RequestMapping(value = "/imageController/{imageId}")
 @ResponseBody
 public byte[] getImage(@PathVariable int imageId)  {

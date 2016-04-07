@@ -8,7 +8,7 @@ package app.springapp;
 
 /**
  *
- * @author swagbito
+ * @author CodeFletcher
  */
 import org.springframework.stereotype.Controller;
 
@@ -23,6 +23,7 @@ import org.apache.commons.logging.LogFactory;
 import java.io.IOException;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+//This class controls the home page url of this application
 @Controller
 public class HelloController  {
 

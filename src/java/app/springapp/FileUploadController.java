@@ -7,7 +7,7 @@ package app.springapp;
 
 /**
  *
- * @author swagbito
+ * @author CodeFletcher
  */
 import java.awt.image.BufferedImage;
 import java.io.BufferedOutputStream;
@@ -16,17 +16,14 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
- 
-//import org.slf4j.Logger;
-//import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
  
@@ -41,17 +38,14 @@ public class FileUploadController {
    @Autowired
    ImageConverter img_conv;
     
+   //returns the maximum character length that can be encrypted within image
     public int getMaxMessageLength(){
-       
-       
-      // img_conv.setFilePath(fileName);
-       //img_conv.loadImage();
-       
+              
        return img_conv.getMaxEncryptionSize();
-       
-        
+               
     }
     
+    //Converts input MultipartFile into an image, if not returns a null image
     public BufferedImage convert(MultipartFile file)
 {    
     BufferedImage im=null;
@@ -80,9 +74,7 @@ public class FileUploadController {
     public @ResponseBody
     ModelAndView uploadFileHandler(@RequestParam("file") MultipartFile file) 
     {
- 
-        String name=file.getOriginalFilename();
-        if (!file.isEmpty()) {
+         if (!file.isEmpty()) {
             try {
                           
                 img_conv.setOriginalImage(convert(file));
@@ -100,12 +92,11 @@ public class FileUploadController {
                 return new ModelAndView("error");                
             }
         } else {
-           // return "You failed to upload " + name
-            //        + " because the file was empty.";
-            return new ModelAndView("error");
+                return new ModelAndView("error");
         }
     }
     
+    //Maps url to upload view if get request
     @RequestMapping(value = "/uploadFile", method = RequestMethod.GET)
     public ModelAndView hello()
             throws ServletException, IOException {
@@ -113,8 +104,8 @@ public class FileUploadController {
         return new ModelAndView("upload");
     }
     
-    
-        @RequestMapping(value = "/deCrypt", method = RequestMethod.POST)
+    //maps url to decryption handler
+    @RequestMapping(value = "/deCrypt", method = RequestMethod.POST)
     public @ResponseBody
     ModelAndView deCryptFileHandler(@RequestParam("file") MultipartFile file) 
     {
@@ -125,25 +116,18 @@ public class FileUploadController {
             try {
                
             img_conv.setOriginalImage(convert(file));
-                
-               
             ModelAndView deCrypt=new ModelAndView("deCrypt");
-            
             String mess=img_conv.deCryptMessage(false);
-            
             deCrypt.addObject("message",mess);
             
             return deCrypt;
            
                    
             } catch (Exception e) {
-                //return "You failed to upload " + name + " => " + e.getMessage();
                 return new ModelAndView("error");
             }
         } else {
-           // return "You failed to upload " + name
-            //        + " because the file was empty.";
-            return new ModelAndView("error");
+                return new ModelAndView("error");
         }
     }
     

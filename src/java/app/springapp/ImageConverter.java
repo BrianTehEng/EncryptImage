@@ -23,7 +23,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 /**
  *
- * @author swagbito
+ * @author CodeFletcher
  */
 @Component
 @Scope("session")
@@ -33,10 +33,7 @@ public class ImageConverter  implements java.io.Serializable {
     String file_name=null,message=null;
     BufferedImage org_image,new_image;
     
-    byte[] org_pixels, new_pixels;
-    
-    
-    
+      
     public void setFileName(String fileName){
         
         file_name=fileName;
@@ -116,6 +113,7 @@ public class ImageConverter  implements java.io.Serializable {
     }
     
     //Returns the maximum number of characters available for encyprtion
+    //We are using 45 pixels to encrypt one character
     public int getMaxEncryptionSize(){
         
         int n;
@@ -126,7 +124,7 @@ public class ImageConverter  implements java.io.Serializable {
     }
     
     
-    
+    //Encrypt characters into image
     public void convertImage(){
             
         new_image=deepCopy(org_image);
@@ -189,12 +187,13 @@ public class ImageConverter  implements java.io.Serializable {
     }
     
     
-    
+    //Get the next x coordinate after n pixels have been traversed
     public int getX(int x, int y,int n){
         
          return (x+n-1)%org_image.getWidth();
     }
     
+    //Get the next y coordinate after n pixels have been traversed
      public int getY(int x, int y,int n){
         
          if(x+n-1<org_image.getWidth()){
@@ -205,7 +204,8 @@ public class ImageConverter  implements java.io.Serializable {
          }
     }
     
-    
+    //adjusts the block value to match the desired value
+    //in our case the desired value is an ascii value
     public void adjustBlockValue(int desired_value,int pixel_number,int x,int y){
         
        
@@ -313,7 +313,7 @@ public class ImageConverter  implements java.io.Serializable {
     
      
       
-    //Between two pixels
+    //Get the block value between pixel x1,y1, and the pixel that is n-1 spaces away
     public int getBlockValue(int x1,int y1,int n,boolean flag){
             
         BufferedImage im;
