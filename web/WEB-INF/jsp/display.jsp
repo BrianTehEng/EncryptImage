@@ -1,7 +1,7 @@
 <%-- 
     Document   : display.jsp
     Created on : 25-Mar-2016, 7:34:50 PM
-    Author     : swagbito
+    Author     : CodeFletcher
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
