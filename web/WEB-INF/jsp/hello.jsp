@@ -11,7 +11,7 @@
   <body>
     <h1>Welcome to the Image Encryptor/Decryptor!</h1>
     <p>Some details about this application:<br><br>
-    1) Rejects images larger then 2MB
+    1) Rejects images larger then 5MB
     <br><br>
     2)PNG works best. JPG works but the output will be PNG.
     <br><br>(usually the PNG will become much larger then the input JPG)
