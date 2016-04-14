@@ -273,16 +273,16 @@ public class ImageConverter  implements java.io.Serializable {
          int green=(rgb >> 8)& 0xFF; 
          int blue=rgb & 0xFF;
          
-         if(red%2 >0 && red>2){
+         if(red%2 >0 && red>0){
              red--;
              bits++;
          }
          
-         if(green%2 >0 && green>2 && bits<0){
+         if(green%2 >0 && green>0 && bits<0){
              green--;
              bits++;
          }
-         if(blue%2 >0 && blue>2 && bits<0){
+         if(blue%2 >0 && blue>0 && bits<0){
              blue--;
              bits++;
          }
