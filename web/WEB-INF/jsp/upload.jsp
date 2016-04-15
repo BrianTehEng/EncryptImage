@@ -12,21 +12,48 @@
 <head>
 <title>Encrypt Message into Image</title>
 </head>
-<body>
- 
-    <h2>Encrypt image with a message:</h2>
-    <form method="POST" action="uploadFile" enctype="multipart/form-data">
-        File to upload: <input type="file" name="file"><br /> 
-       <input type="submit" value="Encrypt"> Press here to upload and convert the image!
-    </form>
-    <br><br>
+
+<style>
+body {
+    background-color: linen;
+    -webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
     
-    <h2>Decrypt image to get hidden message:</h2>
+    -webkit-column-gap: 30px; /* Chrome, Safari, Opera */
+    -moz-column-gap: 30px; /* Firefox */
+    column-gap: 30px;
+    
+    -webkit-column-rule-style: solid; /* Chrome, Safari, Opera */
+    -moz-column-rule-style: solid; /* Firefox */
+    column-rule-style: solid;
+    
+    text-align: center;
+}
+
+div{
+    font-size: 25px;
+    background-color: graytext;
+}
+
+</style>
+
+<body>
      
-    <form method="POST" action="deCrypt" enctype="multipart/form-data">
-        File to upload: <input type="file" name="file"><br /> 
-       <input type="submit" value="Decrypt"> Press here to upload and decrypt the image!
+    <div>Encrypt Image:</div>
+     <br><br>
+    <form method="POST" action="uploadFile" enctype="multipart/form-data">
+    <input type="file" name="file"> 
+   
+       <input type="submit" value="Encrypt"> 
     </form>
-     
+          
+    <div>Decrypt Image:</div>
+     <br><br>
+     <form method="POST" action="deCrypt" enctype="multipart/form-data">
+     <input type="file" name="file"> 
+       <input type="submit" value="Decrypt"> 
+    </form>
+    
 </body>
 </html>

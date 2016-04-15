@@ -14,6 +14,6 @@
     <body>
         <h1>The image you uploaded was invalid.</h1>
         
-        Make sure the file is an image! Also make sure that the image is less than 2MB in size.
+        Make sure the file is an image! Also make sure that the image is less than 5MB in size.
     </body>
 </html>

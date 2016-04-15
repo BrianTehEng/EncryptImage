@@ -8,17 +8,24 @@
 <!DOCTYPE html>
 <html>
   <head><title>Image Encryptor/Decryptor!</title></head>
+  
+  <style>
+      
+      body{
+          text-align: center;
+      }
+  </style>
+  
   <body>
     <h1>Welcome to the Image Encryptor/Decryptor!</h1>
-    <p>Some details about this application:<br><br>
+    <br>
+    <p>Some details about this app:<br><br>
     1) Rejects images larger then 5MB
     <br><br>
-    2)PNG works best. JPG works but the output will be PNG.
-    <br><br>(usually the PNG will become much larger then the input JPG)
-    
+    2)PNG works best. JPG also works but output will be a large PNG file.
     </p>
-    
-    <a href='${pageContext.servletContext.contextPath}/uploadFile'>Click here to Decrypt/Encrypt Images</a>
+    <br>
+    <h2> <a href='${pageContext.servletContext.contextPath}/uploadFile'>Click here to Decrypt/Encrypt Images</a> </h2>
     
     
     

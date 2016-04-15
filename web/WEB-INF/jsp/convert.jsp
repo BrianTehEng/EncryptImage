@@ -11,24 +11,58 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Enter Message to Encrypt</title>
     </head>
+    
+    <style>
+        
+        body{
+            
+            
+             text-align: center;
+             background-color: #1a1a1a;
+        }
+        
+        h3{
+            
+            background-color: graytext;
+            font-size:24px;
+    
+        }
+        
+        div{
+             background-color: graytext;
+             font-size:24px;
+            
+          
+        }
+        
+        input[type="text"]
+{
+    font-size:24px;
+    font-weight: bold;
+}
+        
+    </style>    
+    
     <body>
-        <h1>Enter a message to encrypt within the image you have uploaded</h1>
+        <h3>Enter A Message to be Encrypted Inside your Image</h3>
         
-        
+        <br><br>
+         
         
         <form method="POST" action="convert">
-         <textarea onkeyup="textCounter(this,'counter');" cols="50" maxlength=${maxLen} autofocus="autofocus" rows="10" id="message" name="message"></textarea>
+         <textarea onkeyup="textCounter(this,'counter');" cols="70" maxlength=${maxLen} autofocus="autofocus" rows="20" id="message" name="message"></textarea>
          <input type="submit" value="Encrypt">
         </form>
          <br><br>
-        
+          <br><br>
+         <div>
         Characters Remaining:
         <input type="text" 
         accept="" id="counter"
         onkeypress="return isNumberKey(event)" 
         maxlength="5"
         size="4" disabled/>
-       
+         </div>
         <script>
         function textCounter(field,field2)
         {

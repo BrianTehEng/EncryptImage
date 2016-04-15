@@ -9,8 +9,18 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Done!</title>
+             
     </head>
+    
+    <style>
+        
+        body {
+            
+            text-align: center;
+        }
+    </style>
+    
     <body>
         <h1>Encryption Complete!</h1>
         <br><br>

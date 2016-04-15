@@ -11,8 +11,15 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Message</title>
     </head>
+    
+    <style>
+        body{
+            text-align: center;
+        }    
+    </style>
+    
     <body>
         <h1>Message:</h1>
-        ${message}
+        <textarea cols="70" rows="20">${message}</textarea>
     </body>
 </html>
